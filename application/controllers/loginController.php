@@ -12,5 +12,9 @@ class LoginController extends CI_Controller{
         $this->load->view('Utilisateur/objectif');
     }
 
+    	public function welcomeAdmin()
+	{
+		$this->load->view('Admin/welcomeAdmin');
+	}
 }
 ?>

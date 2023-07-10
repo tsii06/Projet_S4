@@ -66,8 +66,6 @@ create table sakafo(
 	foreign key (idCategorie) references categorie(idCategorie)
 );
 
-
-
 create table categorie(
 	idCategorie int primary key AUTO_INCREMENT,
 	nom varchar(50)
