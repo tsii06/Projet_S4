@@ -1,5 +1,4 @@
-    <?php $this->load->view('Utilisateur/header.php'); ?>
-        
+<?php $this->load->view('Utilisateur/header.php'); ?>
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
@@ -221,14 +220,20 @@
                     <div class="row">
 
                     <div class="col-xl-4 col-md-6 mb-15 mr-4 mx-auto">
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="inputCode" placeholder="Code">
-                        <div class="input-group-append">
-                        <button class="btn btn-primary" type="submit">Envoyer</button>
-                        </div>
+						<form action="<?php echo site_url('argentController/verifieCode'); ?>" method="POST">
+							<div class="input-group">
+								<input type="text" class="form-control" id="inputCode" placeholder="Code" name="idCodeMonnaie">
+								<div class="input-group-append">
+								<button class="btn btn-primary" type="submit">Envoyer</button>
+								</div>
+							</div>
+						</form>
                     </div>
-                    </div>
-
+					<?php if(isset($message)){ ?>
+						<div class="col-xl-4 col-md-6 mb-15 mr-4 mx-auto">
+							<p class="text-danger"><?php echo $message; ?></p>
+						</div>
+					<?php } ?>
                         <div class="col-xl-4 col-md-6 mb-15 mx-auto">
                             <table class="table">
                                 <thead>
@@ -238,14 +243,12 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>Donnée 1</td>
-                                    <td>Donnée 2</td>
-                                </tr>
-                                <tr>
-                                    <td>Donnée 3</td>
-                                    <td>Donnée 4</td>
-                                </tr>
+									<?php for($i=0 ; $i<count($list);$i++) { ?>
+										<tr>
+											<td><?php echo $list[$i]['idCodeMonnaie'] ?></td>
+											<td><?php echo $list[$i]['valeur'] ?></td>
+										</tr>
+									<?php } ?>
                                 <!-- Ajoutez d'autres lignes selon vos besoins -->
                                 </tbody>
                             </table>
