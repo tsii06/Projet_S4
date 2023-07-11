@@ -14,30 +14,30 @@
                                 <h1 class="h4 text-gray-900 mb-4">Modifier Aliment</h1>
                             </div>
 
-                            <form action="<?php echo site_url('activiteController/modifier');?>" method="post" class="user">
+                            <form action="<?php echo site_url('alimentController/update');?>" method="post" class="user">
 
                             <div class="form-group">
                                     <label for="aliment">Aliment</label>
-                                    <input type="text" class="form-control" id="aliment" name="activite" placeholder="Entrez l'activite">
+                                    <input type="text" class="form-control" id="aliment" name="nom" placeholder="<?php echo $liste['nom']?>" >
                             </div>
 
                             <div class="form-group">
                                     <label for="objectif">Objectif</label>
-                                    <select class="form-control" id="objectif" name="objectif">
-                                        <option value="1">Option 1</option>
-                                        <option value="2">Option 2</option>
-                                        <option value="3">Option 3</option>
+                                    <select class="form-control" id="objectif" name="idObjectif">
+                                        <option value="1">Augmentation</option>
+                                        <option value="2">Diminution</option>
                                     </select>
                             </div>
 
                             <div class="form-group">
                                     <label for="categorie">Categorie</label>
-                                    <select class="form-control" id="categorie" name="categorie">
-                                        <option value="1">Option 1</option>
-                                        <option value="2">Option 2</option>
-                                        <option value="3">Option 3</option>
+                                    <select class="form-control" id="categorie" name="idCategorie">
+                                        <?php foreach ($categorie as $key) {
+                                           ?> <option value="1"  <?php if($key['idCategorie']==$key['idCategorie']) { ?> selected <?php } ?> ><?php echo $key['nom']; ?> </option><?php 
+                                        }?>
                                     </select>
                             </div>
+                            <input type="number" name="idSakafo" value="<?php echo $liste['idSakafo'] ?>" hidden>
         
                                 <button type="submit" class="btn btn-primary btn-user btn-block">
                                     Modifier aliment

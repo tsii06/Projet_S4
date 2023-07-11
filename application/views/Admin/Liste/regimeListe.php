@@ -3,6 +3,12 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+                    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+                        For more information about DataTables, please visit the <a target="_blank"
+                            href="https://datatables.net">official DataTables documentation</a>.</p>
+
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
@@ -13,31 +19,32 @@
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
                                         <th>Objectif</th>
-                                        <th>Poids Min</th>
-                                        <th>Poids Max</th>
+                                        <th>Poids</th>
                                         <th>Prix</th>
                                         <th>Durée</th>
-                                        <th>action</th>
-                                        <th>action</th>
+                                        <th></th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-                                        <td>$320,800</td>
-                                        <td>
-                                        <a href="<?php echo site_url("regimeController/modifier") ?>" class="btn btn-primary">Modifier</a>
-                                        </td>
-                                        <td>
-                                            <a href="#" class="btn btn-danger">Supprimer</a>
-                                        </td>
-                                    </tr>
+									<?php foreach($list as $indice){ ?>
+										<tr>
+											<td><?php echo $indice['objectif']; ?></td>
+											<td><?php echo $indice['poids']; ?></td>
+											<td><?php echo $indice['prix']; ?></td>
+											<td><?php echo $indice['duree']; ?></td>
+											<td>
+												<a href="<?php echo site_url('RegimeController/voirListeDetail?idRegime='.$indice['idRegime']); ?>" class="btn btn-success">Detail</a>
+											</td>
+											<td>
+												<button class="btn btn-primary">Modifier</button>
+											</td>
+											<td>
+												<a href="<?php echo site_url('RegimeController/suprimerRegime?idRegime='.$indice['idRegime']); ?>" class="btn btn-danger">Supprimer</a>
+											</td>
+										</tr>
+									<?php } ?>
                                 </tbody>
                             </table>
 
@@ -52,15 +59,14 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <?php $this->load->view('Admin/footer.php'); ?>
+        <?php $this->load->view('Admin/footer.php');?>
             <!-- End of Footer -->
 
         </div>
         <!-- End of Content Wrapper -->
 
     </div>
-    <!-- End of Page Wrapper -->
-    
+    <!-- End of Page Wrapper -->   
 </body>
 
 </html>

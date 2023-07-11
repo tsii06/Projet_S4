@@ -212,95 +212,63 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
-                    <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Suggestions</h1>
                     </div>
-
                     <div class="row">
-
-                        <div class="col-lg-6">
-
-                             <!-- Collapsable Card Example -->
-                             <div class="card shadow mb-4">
-                                <!-- Card Header - Accordion -->
-                                <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse"
-                                    role="button" aria-expanded="true" aria-controls="collapseCardExample">
-                                    <h6 class="m-0 font-weight-bold text-primary">Collapsable Card Example</h6>
-                                </a>
-                                <!-- Card Content - Collapse -->
-                                <div class="collapse show" id="collapseCardExample">
-                            <div class="card-body">
-                                This is a collapsible card example using Bootstrap's built-in collapse functionality. Pour voir le contenu de la carte, veuillez cliquer.
-                            </div>
-                            </div>
-
-                            <a href="<?php echo site_url('suggestionController/details') ?>" class="btn btn-primary btn-user btn-block">Détails</a>
-                            </div>
-
-                             <!-- Collapsable Card Example -->
-                             <div class="card shadow mb-4">
-                                <!-- Card Header - Accordion -->
-                                <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse"
-                                    role="button" aria-expanded="true" aria-controls="collapseCardExample">
-                                    <h6 class="m-0 font-weight-bold text-primary">Collapsable Card Example</h6>
-                                </a>
-                                <!-- Card Content - Collapse -->
-                                <div class="collapse show" id="collapseCardExample">
-                            <div class="card-body">
-                                This is a collapsible card example using Bootstrap's built-in collapse functionality. Pour voir le contenu de la carte, veuillez cliquer.
-                            </div>
-                            </div>
-
-                            <a href="<?php echo site_url('welcomeController/welcome') ?>" class="btn btn-primary btn-user btn-block">Détails</a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6">
-
-                             <!-- Collapsable Card Example -->
-                             <div class="card shadow mb-4">
-                                    <!-- Card Header - Accordion -->
-                                    <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse"
-                                        role="button" aria-expanded="true" aria-controls="collapseCardExample">
-                                        <h6 class="m-0 font-weight-bold text-primary">Collapsable Card Example</h6>
-                                    </a>
-                                    <!-- Card Content - Collapse -->
-                                    <div class="collapse show" id="collapseCardExample">
-                                        <div class="card-body">
-                                            This is a collapsible card example using Bootstrap's built-in collapse functionality. Pour voir le contenu de la carte, veuillez cliquer.
-                                        </div>
-                                    </div>
-                                <a href="<?php echo site_url('welcomeController/welcome') ?>" class="btn btn-primary btn-user btn-block">Détails</a>
-                            </div>
-
-
-                            <!-- Collapsable Card Example -->
+                        <div class="col-lg-12">
                             <div class="card shadow mb-4">
-                                    <!-- Card Header - Accordion -->
-                                    <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse"
-                                        role="button" aria-expanded="true" aria-controls="collapseCardExample">
-                                        <h6 class="m-0 font-weight-bold text-primary">Collapsable Card Example</h6>
-                                    </a>
-                                    <!-- Card Content - Collapse -->
-                                    <div class="collapse show" id="collapseCardExample">
-                                        <div class="card-body">
-                                            This is a collapsible card example using Bootstrap's built-in collapse functionality. Pour voir le contenu de la carte, veuillez cliquer.
-                                        </div>
-                                    </div>
-                                <a href="<?php echo site_url('welcomeController/welcome') ?>" class="btn btn-primary btn-user btn-block">Détails</a>
-                            </div>
-
-
+                                <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse"
+                                     aria-expanded="true" aria-controls="collapseCardExample">
+                                    <h6 class="m-0 font-weight-bold text-primary">Tous les regimes possibles</h6>
+                                </a>
+                            <div class="collapse show" id="collapseCardExample">
+                        <div class="card-body">
+							<table class="table">
+								<thead>
+									<th>Objectif</th>
+									<th>Poids</th>
+									<th>Prix</th>
+									<th>Durée</th>
+									<th></th>
+									<th></th>
+								</thead>
+								<tbody>
+									<tbody>
+										<?php if(isset($listRegimePosible)){ 
+											foreach($listsuggerer as $row) { ?>
+												<tr>
+													<td><?php echo $row['objectif']; ?></td>
+													<td><?php echo $row['poids']; ?></td>
+													<td><?php echo $row['prix']; ?> Ar</td>
+													<td><?php echo $row['duree']; ?> jrs</td>
+													<th><a href="<?php echo site_url('RegimeController/voirDetailSuggestion/'.$row['idRegime']); ?>" class="btn btn-warning">Voir details</a></th>
+													<td><a href="<?php echo site_url('RegimeController/reserverRegimeListe/'.$row['idRegime']); ?>" class="btn btn-success">Acheter</a></td>
+												</tr>
+											<?php }
+										} ?>
+										<?php foreach($listsuggerer as $row) { ?>
+											<form action="<?php echo site_url('RegimeController/reserverRegimeListeTsy'); ?>" method="post">
+												<tr>
+													<input type="hidden" name="idRegime" value="<?php echo $row['idRegime']; ?>">
+													<input type="hidden" name="multiple" value="<?php echo $row['multiple']; ?>">
+													<td><?php echo $row['objectif']; ?></td>
+													<td><?php echo $row['poids']; ?></td>
+													<td><?php echo $row['prix']; ?> Ar</td>
+													<td><?php echo $row['duree']; ?> jrs</td>
+													<th><a href="<?php echo site_url('RegimeController/voirDetailSuggestionTsy/'.$row['idRegime'].'/'.$row['multiple']); ?>" class="btn btn-warning">Voir details</a></th>
+													<td><button class="btn btn-success">Acheter</button></td>
+												</tr>
+											</form>
+										<?php } ?>
+									</tbody>
+								</tbody>
+							</table>
                         </div>
-
-                    </div>
-
-                </div>
-                <!-- /.container-fluid -->
-
+                	</div>
+				</div>
             </div>
+        </div>
             <!-- End of Main Content -->
 
             <!-- Footer -->

@@ -15,6 +15,6 @@ class SuggestionController extends CI_Controller{
     public function details(){
         $this->load->view('Utilisateur/details');
     }
-
+	
 }
 ?>

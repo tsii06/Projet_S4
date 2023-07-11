@@ -1,28 +1,29 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class inscriptionController extends CI_Controller{
+class InscriptionController extends CI_Controller{
 
     public function __construct() {
 		parent::__construct();
 		$this->load->helper('form');
+		$this->load->model('UtilisateurModel');
 	}
 	
     public function sign(){
-        $this->load->view('register');
+		$listgenre = $this->UtilisateurModel->listGenre();
+		$data['listgenre'] = $listgenre;
+        $this->load->view('register',$data);
     }
+    
     public function insert(){
         $nom = $this->input->post("nom");
         $email = $this->input->post("email");
         $mdp = $this->input->post("mdp");
+		$genre = $this->input->post('genre');
         $this->load->model('UtilisateurModel');
-        $this->load->model('ProfilUtilisateurModel');
-        $this->UtilisateurModel->insert($nom,$email,$mdp);
-        $data = array();
-        $data['liste'] = $this->ProfilUtilisateurModel->utilisateruById(1);     
-        $this->load->view('liste',$data);
+        $this->UtilisateurModel->insert($nom,$email,$mdp,$genre);
+        redirect('Welcome/index');
     }
-
 }
 ?>
 

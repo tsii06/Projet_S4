@@ -17,15 +17,14 @@
                             <form action="<?php echo site_url('activiteController/ajouter');?>" method="post" class="user">
                             <div class="form-group">
                                     <label for="activite">Activite</label>
-                                    <input type="text" class="form-control" id="activite" name="activite" placeholder="Entrez l'activite">
+                                    <input type="text" class="form-control" id="activite" name="nom" placeholder="Entrez l'activite">
                             </div>
 
                             <div class="form-group">
                                     <label for="objectif">Objectif</label>
-                                    <select class="form-control" id="objectif" name="objectif">
-                                        <option value="1">Option 1</option>
-                                        <option value="2">Option 2</option>
-                                        <option value="3">Option 3</option>
+                                    <select class="form-control" id="objectif" name="idObjectif">
+                                        <option value="1">Augmentation</option>
+                                        <option value="2">Diminuation</option>
                                     </select>
                                 </div>
         
@@ -34,9 +33,6 @@
                                 </button>
                             </form>
                             <hr>
-                            <div class="text-center">
-                                <a class="small" href="<?php echo site_url("activiteController/activiteListe") ?>">Retour à l'accueil</a>
-                            </div>
                         </div>
                     </div>
                 </div>
