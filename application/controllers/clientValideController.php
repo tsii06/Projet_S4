@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class clientValideController extends CI_Controller{
+class ClientValideController extends CI_Controller{
 
     public function __construct() {
 		parent::__construct();
@@ -9,7 +9,16 @@ class clientValideController extends CI_Controller{
 	}
 	
     public function clientListe(){
-        $this->load->view('Admin/Liste/clientValide');
+    	$this->load->Model('MonnaieModel');
+    	$data = array();
+    	$data['liste']=$this->MonnaieModel->lisetEnAttente();
+        $this->load->view('Admin/Liste/clientValide',$data);
+    }
+
+    public function update($idEtatCode){
+    	$this->load->Model('MonnaieModel');
+        $this->MonnaieModel->validate($idEtatCode);
+        redirect('ClientValideController/clientListe');
     }
 }
 ?>
