@@ -54,9 +54,6 @@ create table regimeUtilisateur(
 insert into regimeUtilisateur values(1,1,'23/03/04');
 insert into regimeUtilisateur values(2,1,'23/03/04');
 
-
-select * from regimeUtilisateur as ru join regime on 
-
 create table sakafo(
 	idSakafo int primary key AUTO_INCREMENT,
 	idObjectif int,

@@ -14,28 +14,27 @@
                                 <h1 class="h4 text-gray-900 mb-4">Ajouter Aliment</h1>
                             </div>
 
-                            <form action="<?php echo site_url('activiteController/ajouter');?>" method="post" class="user">
+                            <form action="<?php echo site_url('alimentController/ajouter');?>" method="post" class="user">
 
                             <div class="form-group">
                                     <label for="aliment">Aliment</label>
-                                    <input type="text" class="form-control" id="aliment" name="activite" placeholder="Entrez l'activite">
+                                    <input type="text" class="form-control" id="aliment" name="nom" placeholder="Entrez l'activite">
                             </div>
 
                             <div class="form-group">
                                     <label for="objectif">Objectif</label>
-                                    <select class="form-control" id="objectif" name="objectif">
-                                        <option value="1">Option 1</option>
-                                        <option value="2">Option 2</option>
-                                        <option value="3">Option 3</option>
+                                    <select class="form-control" id="objectif" name="idObjectif">
+                                        <option value="1">Augmentation</option>
+                                        <option value="2">Diminution</option>
                                     </select>
                             </div>
 
                             <div class="form-group">
                                     <label for="categorie">Categorie</label>
-                                    <select class="form-control" id="categorie" name="categorie">
-                                        <option value="1">Option 1</option>
-                                        <option value="2">Option 2</option>
-                                        <option value="3">Option 3</option>
+                                    <select class="form-control" id="categorie" name="idCategorie">
+                                        <?php foreach ($liste as $key) {
+                                           ?> <option value="1"><?php echo $key['nom']; ?></option><?php 
+                                        }?>
                                     </select>
                             </div>
         

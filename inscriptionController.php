@@ -17,9 +17,13 @@ class inscriptionController extends CI_Controller{
         $email = $this->input->post("email");
         $mdp = $this->input->post("mdp");
         $this->load->model('UtilisateurModel');
+        $this->load->model('ProfilUtilisateurModel');
         $this->UtilisateurModel->insert($nom,$email,$mdp);
-        redirect('Welcome/index');
+        $data = array();
+        $data['liste'] = $this->ProfilUtilisateurModel->utilisateruById(1);     
+        $this->load->view('liste',$data);
     }
+
 }
 ?>
 

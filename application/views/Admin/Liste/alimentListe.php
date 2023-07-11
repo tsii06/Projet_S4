@@ -15,27 +15,28 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Objectif</th>
-                                        <th>Poids Min</th>
                                         <th>Categorie</th>
-                                        <th>Nom</th>
+                                        <th>nom</th>
                                         <th>action</th>
                                         <th>action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php foreach ($liste as $value) {
+                                      ?>
                                     <tr>
-                                        <td>2</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>2011/04/25</td>
-                                        <td>
-                                            <a href="<?php echo site_url("alimentController/modifier") ?>" class="btn btn-primary">Modifier</a>
+                                        <td></td>
+                                        <td><?php echo $value['idObjectif']; ?></td>
+                                        <td><?php echo $value['idCategorie']; ?></td>
+                                        <td><?php echo $value['nom']; ?></td>
+
+                                        <td><a href="<?php echo site_url('alimentController/modifier/'.$value['idSakafo'].''); ?>" class="btn btn-primary">Modifier</a>
                                         </td>
                                         <td>
-                                            <a href="#" class="btn btn-danger">Supprimer</a>
+                                            <a href="<?php echo site_url('alimentController/supprimer/'.$value['idSakafo'].'');  ?>" class="btn btn-danger">Supprimer</a>
                                         </td>
                                     </tr>
+                                <?php } ?>
                                 </tbody>
                             </table>
 

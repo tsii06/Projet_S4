@@ -21,17 +21,21 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
+                                    <?php foreach ($liste as $value) {
+                                      ?>
+                                      <tr>
+                                        <td><?php echo $value['idActiviteSportive']; ?></td>
+                                        <td><?php echo $value['nom']; ?></td>
+                                        <td><?php echo $value['idObjectif']; ?></td>
                                         <td>
-                                        <a href="<?php echo site_url("activiteController/modifier") ?>" class="btn btn-primary">Modifier</a>
+                                        <a href="<?php echo site_url('activiteController/modifier/'.$value['idActiviteSportive'].''); ?>" class="btn btn-primary">Modifier</a>
                                         </td>
                                         <td>
-                                            <a href="#" class="btn btn-danger">Supprimer</a>
+                                            <a href="<?php echo site_url('activiteController/supprimer/'.$value['idActiviteSportive'].'');  ?>" class="btn btn-danger">Supprimer</a>
                                         </td>
                                     </tr>
+                                    <?php } ?>
+                                    
                                 </tbody>
                             </table>
 

@@ -1,5 +1,6 @@
 <?php 
   class ProfilUtilisateurModel extends CI_Model{
+    
   	public function insert($idUtilisateur,$taille,$genre,$poids){
     	$sql="insert into profilUtilisateur values(NULL,%s,%s,'%s',%s)";
 	    $sql=sprintf($sql,$idUtilisateur,$taille,$genre,$poids);
