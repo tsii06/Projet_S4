@@ -17,21 +17,20 @@
                                         <th>code</th>
                                         <th>montant</th>
                                         <th>action</th>
-                                        <th>action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
+                                	<?php foreach ($liste as $key ) { ?>
+       								<tr>
+                                        <td><?php echo $key['nom']; ?></td>
+                                        <td><?php echo $key['idCodeMonnaie']; ?></td>
+                                        <td><?php echo $key['valeur']; ?></td>
                                         <td>
-                                            <button class="btn btn-primary">Valider</button>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-danger">Refuser</button>
+                                            <a href="<?php echo site_url('ClientValideController/update/'.$key['idEtatCode'].''); ?>" class="btn btn-primary">Valider</a>
                                         </td>
                                     </tr>
+                                	<?php } ?>
+                                    
                                 </tbody>
                             </table>
 

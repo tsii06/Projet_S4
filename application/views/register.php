@@ -32,35 +32,42 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="p-5">
-                            <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 mb-4">Créer un compte !</h1>
+                        </div>
+                        <form action="<?php echo site_url('inscriptionController/insert');?>" method="post">
+                            <div class="form-group row">
+                                    <input type="text" class="form-control form-control-user" id="exampleFirstName" name="nom" 
+                                        placeholder="Prénom">
                             </div>
-                            <form action="<?php echo site_url('inscriptionController/insert');?>" method="post" class="user">
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName" name="nom" 
-                                            placeholder="First Name">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="email" class="form-control form-control-user" name="email" 
-                                            id="exampleInputPassword" placeholder="Password">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user" name="mdp" 
-                                            id="exampleRepeatPassword" placeholder="Password">
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-primary btn-user btn-block">
-                                    Register Account
-                                </button>
-                                <br>
-                            </form>
-                            <hr>
-                            <div class="text-center">
-                                <a class="small" href="<?php echo site_url("welcome/index") ?>">Already have an account? Login!</a>
+                            <span class="text-danger" ><?php echo form_error('nom') ?></span>
+
+                            <div class="form-group row">
+                                    <input type="email" class="form-control form-control-user" name="email" 
+                                        id="exampleInputPassword" placeholder="Entrez votre adresse e-mail">
                             </div>
+                            <span class="text-danger" ><?php echo form_error('email') ?></span>
+                            <div class="form-group row">
+                                    <input type="password" class="form-control form-control-user" name="mdp" 
+                                        id="exampleRepeatPassword" placeholder="Mot de passe">
+                            </div>
+                            <div class="form-group row">
+                                <select class="form-control" name="genre">
+                                    <option value="1">Male</option>
+                                    <option value="2">Femelle</option>
+                                </select>
+                            </div>
+                            <span class="text-danger" ><?php echo form_error('mdp') ?></span>
+                            <button type="submit" class="btn btn-primary btn-user btn-block">
+                                Suivant
+                            </button>
+                            <br>
+                        </form>
+                        <hr>
+                        <div class="text-center">
+                            <a class="small" href="<?php echo site_url("welcome/index") ?>">Déjà un compte ? Connectez-vous !</a>
+                        </div>
+
                         </div>
                     </div>
                 </div>
@@ -68,17 +75,6 @@
         </div>
 
     </div>
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="<?php echo base_url('assets/vendor/jquery/jquery.min.js'); ?>"></script>
-    <script src="<?php echo base_url('assets/vendor/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="<?php echo base_url('assets/vendor/jquery-easing/jquery.easing.min.js'); ?>"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="<?php echo base_url('assets/js/sb-admin-2.min.js'); ?>"></script>
-
 </body>
 
 </html>

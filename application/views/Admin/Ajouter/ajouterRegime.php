@@ -13,13 +13,13 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Ajouter un Régime</h1>
                             </div>
-                            <form action="<?php echo site_url('regimeController/ajouter');?>" method="post" class="user">
+                            <form action="<?php echo site_url('regimeController/voirDetail');?>" method="POST" class="user">
                                 <div class="form-group">
                                     <label for="objectif">Objectif</label>
                                     <select class="form-control" id="objectif" name="objectif">
-                                        <option value="1">Option 1</option>
-                                        <option value="2">Option 2</option>
-                                        <option value="3">Option 3</option>
+										<?php foreach($objectifs as $indice){ ?>
+											<option value="<?php echo $indice['idObjectif']; ?>"><?php echo $indice['nom']; ?></option>
+										<?php } ?>
                                     </select>
                                 </div>
                                 <div class="form-group">

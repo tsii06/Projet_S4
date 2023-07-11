@@ -20,11 +20,18 @@
       $resultat=$query->row_array();    
       return $resultat['idUtilisateur'];      
     }  
-  	public function insert($nom,$email,$mdp){
-    	$sql="insert into utilisateur values(NULL,'%s','%s','%s')";
-	    $sql=sprintf($sql,$nom,$email,$mdp);
-	    $query=$this->db->query($sql);
-    }
+    public function insert($nom, $email, $mdp, $genre) {
+			$sql = "INSERT INTO utilisateur VALUES (NULL, '%s', '%s', '%s', %s,0)";
+			$sql = sprintf($sql, $nom, $email, $mdp, $genre);
+			$query = $this->db->query($sql);
+
+
+			$sql1="select * from utilisateur order by idUtilisateur DESC limit 1";
+			$query1 = $this->db->query($sql1);
+			 $resultat=$query1->row_array(); 
+
+			return $resultat['idUtilisateur'];
+	}
 
     public function listeUtilisateur(){
       $sql = "select * from utilisateur";
@@ -35,7 +42,7 @@
       $sql = "select * from utilisateur where idUtilisateur=%s";
       $sql=sprintf($sql,$idUtilisateur);
       $query = $this->db->query($sql);
-      return $query->result_array();
+      return $query->row_array();
     }
 
     public function update($idCategorie){
@@ -43,7 +50,11 @@
       $sql=sprintf($sql,$idCategorie);
       $query=$this->db->query($sql);
     }
-
+		public function listGenre(){
+			$sql = "select * from genre";
+      $query = $this->db->query($sql);
+      return $query->result_array();
+		}
 
 }
 ?>

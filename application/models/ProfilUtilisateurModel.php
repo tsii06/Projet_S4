@@ -1,10 +1,10 @@
 <?php 
   class ProfilUtilisateurModel extends CI_Model{
     
-  	public function insert($idUtilisateur,$taille,$genre,$poids){
-    	$sql="insert into profilUtilisateur values(NULL,%s,%s,'%s',%s)";
-	    $sql=sprintf($sql,$idUtilisateur,$taille,$genre,$poids);
-	    $query=$this->db->query($sql);
+  	public function insert($idUtilisateur,$taille,$poids){
+    	$sql="insert into profilUtilisateur values(NULL,%s,%s,%s)";
+	    $sql=sprintf($sql,$idUtilisateur,$taille,$poids);
+	    $this->db->query($sql);
     }
 
     public function profilById($idUtilisateur){

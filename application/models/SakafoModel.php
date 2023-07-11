@@ -32,5 +32,27 @@
       $query=$this->db->query($sql);
     }
 
+  // ---------------------------------------------------------------
+	public function getIdByNom($nom){
+		$sql = "select idSakafo from sakafo where nom='%s'";
+		$sql = sprintf($sql,$nom);
+		$query = $this->db->query($sql);
+		$row = $query->row_array();
+		return $row['idSakafo'];
+	}
+	public function insertDetail($idRegime,$idSakafo,$quantite){
+		$sql ="insert into detailRegimeSakafo values(%s,%s,%s)";
+		$sql = sprintf($sql,$idRegime,$idSakafo,$quantite);
+		$this->db->query($sql);
+	}
+	public function selectDetailByIdRegime($idRegime){
+		$sql = "select s.nom,.det.quantite from detailRegimeSakafo as det
+		join sakafo as s on s.idSakafo=det.idSakafo
+		where det.idRegime=%s";
+		$sql = sprintf($sql,$idRegime);
+		$query = $this->db->query($sql);
+		return $query->result_array();
+	}
+
 }
 ?>

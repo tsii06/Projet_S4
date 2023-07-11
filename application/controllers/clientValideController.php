@@ -9,7 +9,16 @@ class ClientValideController extends CI_Controller{
 	}
 	
     public function clientListe(){
-        $this->load->view('Admin/Liste/clientValide');
+    	$this->load->Model('MonnaieModel');
+    	$data = array();
+    	$data['liste']=$this->MonnaieModel->lisetEnAttente();
+        $this->load->view('Admin/Liste/clientValide',$data);
+    }
+
+    public function update($idEtatCode){
+    	$this->load->Model('MonnaieModel');
+        $this->MonnaieModel->validate($idEtatCode);
+        redirect('ClientValideController/clientListe');
     }
 }
 ?>

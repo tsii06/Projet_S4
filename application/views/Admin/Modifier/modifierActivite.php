@@ -25,7 +25,7 @@
                                     <select class="form-control" id="objectif" name="idObjectif">
                                         <option value="1"  <?php if($liste['idObjectif']==1) { ?> selected <?php }?> >Dimunition</option>
                                         <option value="2" <?php if($liste['idObjectif']==2) { ?> selected <?php }?>> Augmentation</option>
-                                        <option value="3" <?php if($liste['idObjectif']==3) { ?> selected <?php }?>> Standard</option>
+
                                     </select>
                                 </div>
                                 <input type="number" name="idActivite" hidden="" value="<?php echo $liste['idActiviteSportive']; ?>">

@@ -29,7 +29,7 @@
                                 <input type="number" name="idObjectif" value="2" hidden="">
                                 <input type="number" name="idUtilisateur" value="1" hidden="">
                                 <input style="margin-top: 30px;" type="number" class="form-control form-control-user" id="poids" placeholder="Entrez le poids que vous souhaitez avoir" min="1" name="poids">
-                                <button type="submit" style="margin-top: 30px;" href="<?php echo site_url('welcomeController/welcome') ?>" class="btn btn-primary btn-user btn-block">Valider</button>
+                                <button type="submit" style="margin-top: 30px;" href="" class="btn btn-primary btn-user btn-block">Valider</button>
                             </form>
                             </div>
                         </div>
@@ -50,11 +50,30 @@
                                         </div>
                                     </div>
                                 </div>
-                                <input type="number" name="idObjectif" value="2" hidden="">
+                                <input type="number" name="idObjectif" value="1" hidden="">
                                 <input type="number" name="idUtilisateur" value="1" hidden="">
-                                
-                                <input style="margin-top: 30px;" type="number" class="form-control form-control-user" id="poids" placeholder="Entrez le poids que vous souhaitez perdre" min="1" name="poids">
-                                <button type="submit" style="margin-top: 30px;" href="<?php echo site_url('welcomeController/welcome') ?>" class="btn btn-primary btn-user btn-block">Valider</button>
+        
+                                <input style="margin-top: 30px;" type="text" class="form-control form-control-user" id="poids" placeholder="Entrez le poids que vous souhaitez perdre" min="1" name="poids">
+                                <button type="submit" style="margin-top: 30px;" href="" class="btn btn-primary btn-user btn-block">Valider</button>
+                            </form>
+                            </div>
+                        </div>
+						////////
+						 <!-- Earnings (Annual) Card Example -->
+						 <div class="col-xl-4 col-md-6 mb-15 mx-auto">
+                            <form action="<?php echo site_url('objectifController/getImc');?>" method="post">
+                            <div class="card border-left-success shadow h-100 py-2"  style="padding: 30px;">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">IMC</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" style="margin-top: 30px;" href="" class="btn btn-primary btn-user btn-block">Valider</button>
                             </form>
                             </div>
                         </div>

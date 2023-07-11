@@ -9,28 +9,31 @@ class LoginController extends CI_Controller{
 	}
 	
     public function verife(){
-    	$email = $this->input->post("email");
+        $email = $this->input->post("email");
         $mdp = $this->input->post("mdp"); 
-        $this->load->Model('UtilisateurModel');
+        $this->load->model('UtilisateurModel');
         $logged = $this->UtilisateurModel->is_logged($email,$mdp);
         $auth = $logged->row_array();
-        if($auth['logged'] >= 1)
+        if($auth['logged'] == 1)
         {
             $id=$this->UtilisateurModel->id($email,$mdp);
-            $this->load->view('Utilisateur/objectif');
+            $Utilisateur = $this->UtilisateurModel->utilisateurById($id);
+            $data['utilisateur'] = $Utilisateur;
+            $this->load->view('Utilisateur/objectif',$data);
         }
         else if ($this->input->post('email')=='doda@gmail.com' && $this->input->post('mdp')=='123') {
             redirect('LoginController/welcomeAdmin');
         }
         else  {              
-        	redirect('Welcome/index');  
+            redirect('Welcome/index');  
         }
-        
-
     }
     public function welcomeAdmin()
     {
         $this->load->view('Admin/Ajouter/ajouterActivite');
+    }
+    public function deconnexion(){
+        redirect('Welcome/index'); 
     }
 
 }

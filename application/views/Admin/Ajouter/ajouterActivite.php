@@ -25,7 +25,6 @@
                                     <select class="form-control" id="objectif" name="idObjectif">
                                         <option value="1">Augmentation</option>
                                         <option value="2">Diminuation</option>
-                                        <option value="3">Standards</option>
                                     </select>
                                 </div>
         
